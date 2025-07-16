@@ -104,11 +104,6 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
-        // host: 'ep-wandering-bird-ad4bg9w8-pooler.c-2.us-east-1.aws.neon.tech',
-        // database: 'neondb',
-        // port: 5432,
-        // username: 'neondb_owner',
-        // password: 'npg_dmIXYAtCyl03',
         host: configService.get<string>('DB_HOST'),
         port: configService.get<number>('DB_PORT'),
         username: configService.get<string>('DB_USER'),
