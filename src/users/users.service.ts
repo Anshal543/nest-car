@@ -9,4 +9,9 @@ export class UsersService {
     @InjectRepository(User)
     private usersRepository: Repository<User>,
   ) {}
+
+  create(email: string, password: string) {
+    const user = this.usersRepository.create({ email, password });
+    return this.usersRepository.save(user);
+  }
 }
